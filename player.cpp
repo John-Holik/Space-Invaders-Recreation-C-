@@ -1,3 +1,7 @@
+// File   : player.cpp
+// Author : John Holik
+// Desc   : Implementation of the player class
+// *********************************************************************************
 #include "player.h"
 #include <iostream>
 
@@ -33,6 +37,7 @@ void Player::update()
     }
 }
 
+// Render player icon 
 void Player::draw(sf::RenderWindow& window){
     window.draw(sprite);
     // std::cout << "Player Position: (" << shape.getPosition().x << ", " << shape.getPosition().y << ")\n";

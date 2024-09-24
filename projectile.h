@@ -1,3 +1,7 @@
+// File   : projectile.h
+// Author : John Holik
+// Desc   : Header file for Projectile object class
+// *********************************************************************************
 #ifndef PROJECTILE.H
 #define PROJECTILE.H
 
@@ -5,16 +9,20 @@
 
 class Projectile{
 public:
-    Projectile(float x, float y);
+    Projectile(float x, float y, float width, float hight, sf::Color color);
 
     void update();
 
-    void draw(sf::RenderWindow& window);
+    const sf::RectangleShape &getShape() const;
 
-    void collision();
+    // Collision checking method
+    bool checkCollision(const sf::FloatRect &otherBounds) const;
 
 private:
+    // Shape of Bullet
     sf::RectangleShape shape;
+
+    // Speed bullet moves upwards on screen
     float speed;
 };
 

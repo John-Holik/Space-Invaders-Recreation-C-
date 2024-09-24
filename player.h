@@ -1,3 +1,7 @@
+// File   : player.h
+// Author : John Holik
+// Desc   : Header file for player Class
+// *********************************************************************************
 #ifndef PLAYER_H
 #define PLAYER_H
 
@@ -16,6 +20,8 @@ private:
     // Shape of Player
     sf::Sprite sprite;
     sf::Texture texture;
+
+    // Player left & right movement speed
     float speed;
 };
 
