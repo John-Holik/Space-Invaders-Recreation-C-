@@ -7,7 +7,7 @@
 
 // Constructor
 // *********************************************************************************
-Player::Player(float x, float y) : speed(0.1f){
+Player::Player(float x, float y) : speed(1.f){
     
     if (!texture.loadFromFile("/home/john/VSCode/Space Invaders/player_icon.png")){
             std::cerr << "Error loading player texture" << std::endl;
@@ -41,4 +41,16 @@ void Player::update()
 void Player::draw(sf::RenderWindow& window){
     window.draw(sprite);
     // std::cout << "Player Position: (" << shape.getPosition().x << ", " << shape.getPosition().y << ")\n";
+}
+
+// Get the player's current position
+sf::Vector2f Player::getPosition() const
+{
+    return sprite.getPosition(); // Return the current position of the player
+}
+
+// Get the bounds for collision detection
+sf::FloatRect Player::getGlobalBounds() const
+{
+    return sprite.getGlobalBounds(); 
 }

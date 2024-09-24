@@ -16,6 +16,12 @@ public:
 
     void draw(sf::RenderWindow& window);
 
+    // Get the player's current position
+    sf::Vector2f getPosition() const;
+    
+    // Get the bounds for collision detection
+    sf::FloatRect getGlobalBounds() const; 
+
 private:
     // Shape of Player
     sf::Sprite sprite;

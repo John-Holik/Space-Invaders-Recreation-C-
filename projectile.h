@@ -2,8 +2,8 @@
 // Author : John Holik
 // Desc   : Header file for Projectile object class
 // *********************************************************************************
-#ifndef PROJECTILE.H
-#define PROJECTILE.H
+#ifndef PROJECTILE_H
+#define PROJECTILE_H
 
 #include <SFML/Graphics.hpp>
 

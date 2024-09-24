@@ -5,8 +5,10 @@
 
 #include <stdio.h>
 #include <cstdio>
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include "player.h"
+#include "projectile.h"
 
 void draw(sf::RenderWindow& window);
 
@@ -36,9 +38,16 @@ int main()
     // Set player starting location
     Player player(x, y);
 
+    // Vector to hold projectiles
+    std::vector<Projectile> projectiles;
 
-// Game Loop
-// ***********************************************************************************************************
+    // Projectile parameters
+    float projectileWidth = 5.f;
+    float projectileHeight = 10.f;
+    float projectileSpeed = 5.f;
+
+    // Game Loop
+    // ***********************************************************************************************************
 
     // Run the program as long as the window is open
     while (window.isOpen())
@@ -53,10 +62,41 @@ int main()
         }
 
         player.update();
+
+        // Fire projectile
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+        {
+            // Create a projectile at the center of the player
+            float projectileX = player.getPosition().x + (player.getGlobalBounds().getSize().x / 2) - (projectileWidth / 2);
+            float projectileY = player.getPosition().y;
+            projectiles.emplace_back(projectileX, projectileY, projectileWidth, projectileHeight, sf::Color::White);
+        }
+
+        // Update projectiles
+        for (size_t i = 0; i < projectiles.size(); ++i)
+        {
+            projectiles[i].update(); // Update projectile position
+
+            // Check for collision with an enemy (assuming you have an enemy defined)
+            /*if (projectiles[i].checkCollision(enemy.getGlobalBounds()))
+            {
+                // Handle collision (e.g., remove projectile, reduce enemy health)
+                projectiles.erase(projectiles.begin() + i); // Remove projectile on collision
+                --i;                                        // Adjust index due to removal
+            } */
+        }
+
         // Clear the window with a black color
         window.clear(sf::Color::Black); 
+
         // Draw your game objects here
         player.draw(window);
+
+        // Draw the projectiles
+        for (const auto &projectile : projectiles)
+        {
+            window.draw(projectile.getShape());
+        }
         // Display the contents of the window
         window.display();
     }
