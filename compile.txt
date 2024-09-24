@@ -1,0 +1,1 @@
+g++ -o space_invaders spaceInvaders.cpp player.cpp -lsfml-graphics -lsfml-window -lsfml-system
