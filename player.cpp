@@ -6,7 +6,7 @@
 #include <iostream>
 
 // Constructor
-
+// *********************************************************************************
 Player::Player(float x, float y) : speed(0.1f){
     
     if (!texture.loadFromFile("/home/john/VSCode/Space Invaders/player_icon.png")){
@@ -18,7 +18,7 @@ Player::Player(float x, float y) : speed(0.1f){
 }
 
 // Methods
-// *********************************************************
+// *********************************************************************************
 void Player::update()
 {
     // Get the current position of the player

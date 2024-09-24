@@ -9,7 +9,7 @@
 
 class Projectile{
 public:
-    Projectile(float x, float y, float width, float hight, sf::Color color);
+    Projectile(float x, float y, float width, float height, sf::Color color);
 
     void update();
 
